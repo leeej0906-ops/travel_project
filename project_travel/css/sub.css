@@ -1,0 +1,108 @@
+/* =========================================================
+   서브 페이지 스타일 (여행지소개 destinations.html)
+   style.css 를 함께 로드한 뒤 이 파일로 서브 전용 스타일을 덮어씀
+   ========================================================= */
+
+/* ---------- 서브 페이지 헤더(배너) ---------- */
+.sub-hero {
+  color: #fff;
+  text-align: center;
+  padding: 72px 20px;
+  background: linear-gradient(135deg, #1565c0 0%, #26c6da 100%);
+}
+
+.sub-hero h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.sub-hero p {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+/* ---------- 필터 바 ---------- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 40px 0 34px;
+}
+
+.filter-btn {
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-btn.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- 검색 결과 안내 ---------- */
+.result-info {
+  text-align: center;
+  color: var(--color-text-sub);
+  margin-bottom: 26px;
+  font-size: 0.95rem;
+}
+
+/* ---------- 여행지 목록 그리드 (전체) ---------- */
+.dest-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  padding-bottom: 20px;
+}
+
+/* 검색/필터 결과 없음 */
+.empty-msg {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-text-sub);
+  padding: 60px 0;
+  font-size: 1.05rem;
+}
+
+/* 숨김 처리 (필터링) */
+.dest-card[hidden] {
+  display: none;
+}
+
+/* ---------- 서브페이지 반응형 ---------- */
+@media (max-width: 900px) {
+  .dest-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sub-hero h1 {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .dest-list {
+    grid-template-columns: 1fr;
+  }
+  .sub-hero {
+    padding: 54px 20px;
+  }
+  .sub-hero h1 {
+    font-size: 1.7rem;
+  }
+}

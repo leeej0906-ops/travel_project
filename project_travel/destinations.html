@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>여행지소개 — 여행온</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/sub.css" />
+</head>
+<body>
+
+  <!-- ================= 헤더 / 네비게이션 ================= -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">🧭</span>
+        <span>여행온</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="board_ex/index.html">게시판</a></li>
+          <li><a href="gallery_ex/edit.html">갤러리</a></li>
+          <li><a href="destinations.html">여행지소개</a></li>
+          <li><a href="member_ex/signup.html">회원가입</a></li>
+          <li><a href="member_ex/login.html" class="cta">로그인</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= 서브 배너 ================= -->
+  <section class="sub-hero">
+    <h1>여행지소개</h1>
+    <p>전국 방방곡곡, 국내 대표 여행지를 한눈에 만나보세요.</p>
+  </section>
+
+  <!-- ================= 목록 ================= -->
+  <main class="section">
+    <div class="container">
+
+      <!-- 테마 필터 -->
+      <div class="filter-bar" id="filter-bar">
+        <button class="filter-btn is-active" data-theme="all">전체</button>
+        <button class="filter-btn" data-theme="sea">🌊 바다</button>
+        <button class="filter-btn" data-theme="nature">⛰️ 산/자연</button>
+        <button class="filter-btn" data-theme="history">🏛️ 역사/문화</button>
+        <button class="filter-btn" data-theme="food">🍜 맛집</button>
+      </div>
+
+      <p class="result-info" id="result-info"></p>
+
+      <!-- 여행지 카드 목록 (JS로 렌더링) -->
+      <div class="dest-list" id="dest-list"></div>
+    </div>
+  </main>
+
+  <!-- ================= 푸터 ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">🧭 여행온</div>
+      <p>국내 여행지 추천 플랫폼</p>
+      <p style="margin-top: 10px;">&copy; 2026 여행온 (TravelOn). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/destinations.js"></script>
+</body>
+</html>

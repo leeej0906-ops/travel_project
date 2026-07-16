@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기 - 게시판</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="board-header">
+            <h1>글쓰기</h1>
+        </header>
+
+        <!-- 오류 메시지 영역 -->
+        <div id="error-message" class="error-message" hidden></div>
+
+        <!-- 글쓰기 폼 -->
+        <form id="write-form" class="write-form">
+            <!-- 제목 -->
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input
+                    type="text"
+                    id="title"
+                    class="form-input"
+                    placeholder="제목을 입력하세요 (최대 50자)"
+                    maxlength="50"
+                    required
+                />
+            </div>
+
+            <!-- 작성자 -->
+            <div class="form-group">
+                <label for="writer">작성자</label>
+                <input
+                    type="text"
+                    id="writer"
+                    class="form-input"
+                    placeholder="작성자를 입력하세요 (최대 50자)"
+                    maxlength="50"
+                    required
+                />
+            </div>
+
+            <!-- 내용 -->
+            <div class="form-group">
+                <label for="content">내용</label>
+                <textarea
+                    id="content"
+                    class="form-textarea"
+                    placeholder="내용을 입력하세요"
+                    rows="10"
+                    required
+                ></textarea>
+            </div>
+
+            <!-- 버튼 영역 -->
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">저장</button>
+                <button type="reset" class="btn btn-secondary">초기화</button>
+                <a href="list.html" class="btn btn-secondary">목록</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Supabase JS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="write.js"></script>
+</body>
+</html>

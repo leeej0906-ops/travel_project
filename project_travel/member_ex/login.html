@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <!-- 반응형: 모바일에서도 올바른 배율로 표시 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <!-- 회원가입 페이지와 동일한 카드형 스타일(style.css)을 공유해서 사용 -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- 화면 가운데 정렬 래퍼 -->
+    <main class="page">
+        <!-- 회원가입과 동일한 카드 스타일 -->
+        <section class="card">
+            <h1 class="card__title">로그인</h1>
+            <p class="card__subtitle">가입한 계정으로 로그인해 주세요.</p>
+
+            <!-- 로그인 폼 (novalidate: 브라우저 기본 검사 대신 JS로 직접 검사) -->
+            <form id="login-form" class="form" novalidate>
+
+                <!-- 이메일 -->
+                <div class="form__group">
+                    <label for="email">이메일 <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" />
+                </div>
+
+                <!-- 비밀번호 + 보기/숨기기 토글 -->
+                <div class="form__group">
+                    <label for="password">비밀번호 <span class="required">*</span></label>
+                    <div class="input-wrap">
+                        <input type="password" id="password" name="password" placeholder="비밀번호 입력" />
+                        <button type="button" class="toggle-pw" data-target="password" aria-label="비밀번호 표시">👁</button>
+                    </div>
+                </div>
+
+                <!-- 오류/안내 메시지 표시 영역 -->
+                <p id="message" class="message" role="alert"></p>
+
+                <!-- 버튼 영역 -->
+                <div class="form__actions">
+                    <!-- 로그인 (submit) -->
+                    <button type="submit" id="login-btn" class="btn btn--primary">로그인</button>
+                    <!-- 회원가입 페이지로 이동 -->
+                    <button type="button" id="signup-btn" class="btn btn--ghost">회원가입</button>
+                </div>
+
+                <!-- 회원가입 링크 (버튼과 별개로 텍스트 링크도 제공) -->
+                <p class="login-link">
+                    아직 계정이 없으신가요?
+                    <a href="signup.html">회원가입</a>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <!-- 우리 스크립트 (type="module") — Supabase SDK 는 supabase.js 안에서 import 함 -->
+    <script type="module" src="login.js"></script>
+</body>
+</html>

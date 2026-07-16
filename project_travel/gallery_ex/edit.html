@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>갤러리 목록</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container list-container">
+    <h1 class="page-title">갤러리 목록</h1>
+
+    <div class="list-toolbar">
+      <a href="upload.html" class="btn btn-primary">등록</a>
+    </div>
+
+    <table class="gallery-table">
+      <thead>
+        <tr>
+          <th>제목</th>
+          <th>이미지</th>
+          <th>등록일</th>
+          <th>관리</th>
+        </tr>
+      </thead>
+      <tbody id="gallery-body">
+        <!-- JS로 행 삽입 -->
+      </tbody>
+    </table>
+
+    <p id="message" class="message" role="status"></p>
+  </main>
+
+  <!-- Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Supabase 연결 코드 (db 클라이언트 생성) -->
+  <script src="supabase.js"></script>
+  <script src="edit.js"></script>
+</body>
+</html>

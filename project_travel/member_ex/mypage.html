@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내 정보</title>
+    <!-- 1) 회원가입/로그인과 공유하는 카드형 기본 스타일 -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- 2) 이 페이지(정보 표시)에만 필요한 스타일은 별도 파일로 분리 -->
+    <link rel="stylesheet" href="mypage.css" />
+</head>
+<body>
+    <main class="page">
+        <!-- 회원가입/로그인과 동일한 카드 스타일 -->
+        <section class="card">
+            <h1 class="card__title">내 정보</h1>
+
+            <!-- 프로필 영역: 원형 이미지 + 권한 배지 -->
+            <div class="profile">
+                <!-- 프로필 이미지 (기본값은 mypage.js 에서 지정) -->
+                <img id="profile-image" class="profile__image" alt="프로필 이미지" />
+                <!-- 권한 배지 (관리자 / 일반) -->
+                <span id="role-badge" class="badge">-</span>
+            </div>
+
+            <!-- 회원 정보 목록 (항목 사이 구분선은 mypage.css 에서 처리) -->
+            <dl class="info-list">
+                <div class="info-row">
+                    <dt class="info-row__label">이름</dt>
+                    <dd id="info-name" class="info-row__value">-</dd>
+                </div>
+                <div class="info-row">
+                    <dt class="info-row__label">이메일</dt>
+                    <dd id="info-email" class="info-row__value">-</dd>
+                </div>
+                <div class="info-row">
+                    <dt class="info-row__label">전화번호</dt>
+                    <dd id="info-phone" class="info-row__value">-</dd>
+                </div>
+                <div class="info-row">
+                    <dt class="info-row__label">주소</dt>
+                    <dd id="info-address" class="info-row__value">-</dd>
+                </div>
+            </dl>
+
+            <!-- 안내/오류 메시지 -->
+            <p id="message" class="message" role="alert"></p>
+
+            <!-- 로그아웃 버튼 -->
+            <button type="button" id="logout-btn" class="btn btn--primary btn--full">로그아웃</button>
+        </section>
+    </main>
+
+    <!-- 우리 스크립트 (type="module") — Supabase SDK 는 supabase.js 안에서 import 함 -->
+    <script type="module" src="mypage.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <!-- 반응형: 모바일 화면에서도 올바른 배율로 표시 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- 화면 가운데 정렬을 위한 래퍼 -->
+    <main class="page">
+        <!-- 카드 형태의 회원가입 영역 -->
+        <section class="card">
+            <h1 class="card__title">회원가입</h1>
+            <p class="card__subtitle">필수 정보를 입력해 계정을 만들어 주세요.</p>
+
+            <!-- 회원가입 폼 (novalidate: 브라우저 기본 검사 대신 JS로 직접 검사) -->
+            <form id="signup-form" class="form" novalidate>
+
+                <!-- 이름 (필수) -->
+                <div class="form__group">
+                    <label for="name">이름 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="홍길동" />
+                </div>
+
+                <!-- 이메일 (필수, 로그인 계정) -->
+                <div class="form__group">
+                    <label for="email">이메일 <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" />
+                </div>
+
+                <!-- 비밀번호 (필수) -->
+                <div class="form__group">
+                    <label for="password">비밀번호 <span class="required">*</span></label>
+                    <div class="input-wrap">
+                        <input type="password" id="password" name="password" placeholder="6자 이상 입력" />
+                        <!-- 비밀번호 보기/숨기기 토글 버튼 -->
+                        <button type="button" class="toggle-pw" data-target="password" aria-label="비밀번호 표시">👁</button>
+                    </div>
+                </div>
+
+                <!-- 비밀번호 확인 (필수) -->
+                <div class="form__group">
+                    <label for="password-confirm">비밀번호 확인 <span class="required">*</span></label>
+                    <div class="input-wrap">
+                        <input type="password" id="password-confirm" name="password-confirm" placeholder="비밀번호 재입력" />
+                        <button type="button" class="toggle-pw" data-target="password-confirm" aria-label="비밀번호 표시">👁</button>
+                    </div>
+                </div>
+
+                <!-- 전화번호 (선택) -->
+                <div class="form__group">
+                    <label for="phone">전화번호</label>
+                    <input type="tel" id="phone" name="phone" placeholder="010-1234-5678" />
+                </div>
+
+                <!-- 주소 (선택) -->
+                <div class="form__group">
+                    <label for="address">주소</label>
+                    <input type="text" id="address" name="address" placeholder="서울시 강남구 ..." />
+                </div>
+
+                <!-- 프로필 이미지 업로드 (선택) -->
+                <div class="form__group">
+                    <label for="profile-image">프로필 이미지</label>
+                    <input type="file" id="profile-image" name="profile-image" accept="image/*" />
+                    <!-- 선택한 이미지 미리보기 -->
+                    <img id="preview" class="preview" alt="미리보기" hidden />
+                </div>
+
+                <!-- 오류/안내 메시지 표시 영역 -->
+                <p id="message" class="message" role="alert"></p>
+
+                <!-- 버튼 영역 -->
+                <div class="form__actions">
+                    <!-- 회원가입 (submit) -->
+                    <button type="submit" id="submit-btn" class="btn btn--primary">회원가입</button>
+                    <!-- 입력 초기화 -->
+                    <button type="reset" id="reset-btn" class="btn btn--ghost">초기화</button>
+                </div>
+
+                <!-- 로그인 페이지 이동 -->
+                <p class="login-link">
+                    이미 계정이 있으신가요?
+                    <a href="login.html" id="login-link">로그인</a>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <!-- 우리 스크립트 (type="module") — Supabase SDK 는 supabase.js 안에서 import 함 -->
+    <script type="module" src="signup.js"></script>
+</body>
+</html>

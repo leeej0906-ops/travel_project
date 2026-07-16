@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이미지 등록</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1 class="page-title">이미지 등록</h1>
+
+    <div class="list-toolbar">
+      <a href="edit.html" id="list-btn" class="list-btn">목록 조회</a>
+    </div>
+
+    <form id="upload-form" class="upload-form">
+      <div class="field">
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required />
+      </div>
+
+      <div class="field">
+        <label for="description">이미지 설명</label>
+        <textarea id="description" name="description" rows="4" placeholder="이미지 설명을 입력하세요"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="image">이미지 파일</label>
+        <input type="file" id="image" name="image" accept="image/*" required />
+      </div>
+
+      <div class="preview-wrap" id="preview-wrap" hidden>
+        <img id="preview" class="preview" alt="이미지 미리보기" />
+      </div>
+
+      <button type="submit" id="submit-btn" class="submit-btn">등록</button>
+
+      <p id="message" class="message" role="status"></p>
+    </form>
+  </main>
+
+  <!-- Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Supabase 연결 코드 (db 클라이언트 생성) -->
+  <script src="supabase.js"></script>
+  <script src="upload.js"></script>
+</body>
+</html>

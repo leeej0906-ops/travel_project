@@ -1,0 +1,93 @@
+/* =====================================================================
+   mypage.css
+   내 정보 페이지 전용 스타일 (프로필/정보 목록/배지)
+   ※ 기본 카드/버튼 스타일은 style.css 를 공유하며,
+     여기서는 '정보 표시'에 필요한 스타일만 정의한다.
+   ===================================================================== */
+
+/* ------------------------------------------------------------------
+   프로필 영역 (원형 이미지 + 권한 배지)
+   ------------------------------------------------------------------ */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0 24px;
+}
+
+/* 프로필 이미지를 원형으로 표시 */
+.profile__image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover; /* 비율 유지하며 원 안을 꽉 채움 */
+    border: 3px solid #e5e7eb;
+    background-color: #f3f4f6; /* 이미지 로딩 전 배경 */
+}
+
+/* ------------------------------------------------------------------
+   권한 배지 (관리자 / 일반)
+   ------------------------------------------------------------------ */
+.badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 999px; /* 알약 모양 */
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* 관리자 배지 (강조 색) */
+.badge--admin {
+    background-color: #ede9fe;
+    color: #6d28d9;
+}
+
+/* 일반 사용자 배지 (중립 색) */
+.badge--user {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+/* ------------------------------------------------------------------
+   회원 정보 목록 (항목 사이 구분선)
+   ------------------------------------------------------------------ */
+.info-list {
+    margin: 0 0 24px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 2px;
+    border-bottom: 1px solid #e5e7eb; /* 항목 사이 구분선 */
+}
+
+/* 마지막 항목은 구분선 제거 (아래쪽 선이 겹치지 않도록) */
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b7280;
+    flex-shrink: 0; /* 라벨은 줄어들지 않음 */
+}
+
+.info-row__value {
+    margin: 0; /* dd 기본 여백 제거 */
+    font-size: 0.95rem;
+    color: #1f2937;
+    text-align: right;
+    word-break: break-all; /* 긴 이메일/주소가 넘치지 않도록 */
+}
+
+/* ------------------------------------------------------------------
+   가로로 꽉 차는 버튼 (로그아웃)
+   ------------------------------------------------------------------ */
+.btn--full {
+    width: 100%;
+}

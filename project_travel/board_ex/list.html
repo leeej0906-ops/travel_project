@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="board-header">
+            <h1>게시판</h1>
+            <a href="write.html" class="btn btn-primary">글쓰기</a>
+        </header>
+
+        <form id="search-form" class="search-bar">
+            <select id="sort-select" class="sort-select">
+                <option value="latest">최신순</option>
+                <option value="oldest">오래된순</option>
+                <option value="views">조회수순</option>
+            </select>
+            <input
+                type="text"
+                id="search-input"
+                class="search-input"
+                placeholder="제목 또는 작성자를 검색하세요"
+                autocomplete="off"
+            />
+            <button type="submit" class="btn btn-secondary">검색</button>
+            <button type="button" id="show-all-btn" class="btn btn-secondary">전체보기</button>
+        </form>
+
+        <!-- 오류 메시지 영역 -->
+        <div id="error-message" class="error-message" hidden></div>
+
+        <div class="table-wrapper">
+            <table class="board-table">
+                <thead>
+                    <tr>
+                        <th class="col-id">번호</th>
+                        <th class="col-title">제목</th>
+                        <th class="col-writer">작성자</th>
+                        <th class="col-views">조회수</th>
+                        <th class="col-date">작성일</th>
+                    </tr>
+                </thead>
+                <tbody id="post-list">
+                    <!-- JavaScript로 게시글 목록이 렌더링됩니다 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 하단 footer 영역 : 페이지네이션(이전/다음) -->
+        <footer class="board-footer">
+            <div id="pagination" class="pagination" hidden>
+                <button type="button" id="prev-btn" class="btn btn-secondary">이전</button>
+                <span id="page-info" class="page-info"></span>
+                <button type="button" id="next-btn" class="btn btn-secondary">다음</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Supabase JS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="list.js"></script>
+</body>
+</html>

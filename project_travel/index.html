@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>여행온 — 국내 여행지 추천</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= 헤더 / 네비게이션 ================= -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">🧭</span>
+        <span>여행온</span>
+      </a>
+
+      <!-- 모바일 햄버거 버튼 -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="board_ex/list.html">게시판</a></li>
+          <li><a href="gallery_ex/edit.html">갤러리</a></li>
+          <li><a href="destinations.html">여행지소개</a></li>
+          <li><a href="member_ex/signup.html">회원가입</a></li>
+          <li><a href="member_ex/login.html" class="cta">로그인</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= 히어로 ================= -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>지금, 떠나기 좋은<br />국내 여행지를 찾아보세요</h1>
+      <p>바다부터 산, 역사와 맛집까지 — 당신의 다음 여행을 여행온이 추천합니다.</p>
+
+      <form class="search-box" id="search-form" role="search">
+        <select id="search-region" aria-label="지역 선택">
+          <option value="">전체 지역</option>
+          <option value="수도권">수도권</option>
+          <option value="강원">강원</option>
+          <option value="충청">충청</option>
+          <option value="경상">경상</option>
+          <option value="전라">전라</option>
+          <option value="제주">제주</option>
+        </select>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="여행지, 테마를 검색해 보세요 (예: 바다, 경주)"
+          autocomplete="off"
+        />
+        <button type="submit">검색</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= 추천 여행지 ================= -->
+  <section class="section" id="recommend">
+    <div class="container">
+      <div class="section-head">
+        <h2>추천 여행지</h2>
+        <p>여행온이 엄선한 국내 대표 여행지를 만나보세요.</p>
+      </div>
+
+      <div class="dest-grid">
+        <!-- 제주도 -->
+        <a href="destinations.html" class="dest-card">
+          <div class="dest-thumb thumb-jeju">제주도</div>
+          <div class="dest-body">
+            <h3>제주도</h3>
+            <p class="desc">에메랄드빛 바다와 오름, 사계절 내내 아름다운 힐링 섬.</p>
+            <div class="tags">
+              <span class="tag">#바다</span>
+              <span class="tag">#드라이브</span>
+              <span class="tag">#힐링</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 부산 -->
+        <a href="destinations.html" class="dest-card">
+          <div class="dest-thumb thumb-busan">부산</div>
+          <div class="dest-body">
+            <h3>부산</h3>
+            <p class="desc">해운대와 광안리, 낭만 가득한 대한민국 대표 바다 도시.</p>
+            <div class="tags">
+              <span class="tag">#바다</span>
+              <span class="tag">#야경</span>
+              <span class="tag">#먹방</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 경주 -->
+        <a href="destinations.html" class="dest-card">
+          <div class="dest-thumb thumb-gyeongju">경주</div>
+          <div class="dest-body">
+            <h3>경주</h3>
+            <p class="desc">천년 신라의 숨결이 살아있는 노천 역사 박물관.</p>
+            <div class="tags">
+              <span class="tag">#역사</span>
+              <span class="tag">#문화</span>
+              <span class="tag">#야경</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 강릉 -->
+        <a href="destinations.html" class="dest-card">
+          <div class="dest-thumb thumb-gangneung">강릉</div>
+          <div class="dest-body">
+            <h3>강릉</h3>
+            <p class="desc">푸른 동해와 커피 향 가득한 감성 바다 여행지.</p>
+            <div class="tags">
+              <span class="tag">#바다</span>
+              <span class="tag">#카페</span>
+              <span class="tag">#기차여행</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 여수 -->
+        <a href="destinations.html" class="dest-card">
+          <div class="dest-thumb thumb-yeosu">여수</div>
+          <div class="dest-body">
+            <h3>여수</h3>
+            <p class="desc">밤바다의 낭만과 케이블카, 반짝이는 남해의 보석.</p>
+            <div class="tags">
+              <span class="tag">#바다</span>
+              <span class="tag">#야경</span>
+              <span class="tag">#해산물</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 전주 -->
+        <a href="destinations.html" class="dest-card">
+          <div class="dest-thumb thumb-jeonju">전주</div>
+          <div class="dest-body">
+            <h3>전주</h3>
+            <p class="desc">한옥마을과 비빔밥, 전통과 맛이 어우러진 미식 도시.</p>
+            <div class="tags">
+              <span class="tag">#한옥</span>
+              <span class="tag">#맛집</span>
+              <span class="tag">#전통</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 테마별 여행 ================= -->
+  <section class="section theme-section" id="theme">
+    <div class="container">
+      <div class="section-head">
+        <h2>테마별 여행</h2>
+        <p>취향 따라 골라 떠나는 테마 여행.</p>
+      </div>
+
+      <div class="theme-grid">
+        <a href="destinations.html?theme=sea" class="theme-card">
+          <div class="theme-icon">🌊</div>
+          <h3>바다</h3>
+          <p>해변과 낭만 가득한 바닷가 여행</p>
+        </a>
+        <a href="destinations.html?theme=nature" class="theme-card">
+          <div class="theme-icon">⛰️</div>
+          <h3>산 / 자연</h3>
+          <p>초록빛 자연 속 힐링 여행</p>
+        </a>
+        <a href="destinations.html?theme=history" class="theme-card">
+          <div class="theme-icon">🏛️</div>
+          <h3>역사 / 문화</h3>
+          <p>시간을 거슬러 떠나는 문화 여행</p>
+        </a>
+        <a href="destinations.html?theme=food" class="theme-card">
+          <div class="theme-icon">🍜</div>
+          <h3>맛집</h3>
+          <p>지역 대표 미식 탐방 여행</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 갤러리 미리보기 ================= -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <h2>여행 갤러리</h2>
+        <p>여행자들이 담아온 국내 여행의 순간들.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <a href="gallery_ex/edit.html" class="gallery-item wide thumb-jeju">제주 협재 해변</a>
+        <a href="gallery_ex/edit.html" class="gallery-item thumb-gyeongju">경주 첨성대</a>
+        <a href="gallery_ex/edit.html" class="gallery-item thumb-yeosu">여수 밤바다</a>
+        <a href="gallery_ex/edit.html" class="gallery-item thumb-gangneung">강릉 안목해변</a>
+        <a href="gallery_ex/edit.html" class="gallery-item thumb-jeonju">전주 한옥마을</a>
+        <a href="gallery_ex/edit.html" class="gallery-item wide thumb-busan">부산 광안대교</a>
+      </div>
+
+      <div class="gallery-more">
+        <a href="gallery_ex/edit.html" class="btn btn-outline">갤러리 더보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 푸터 ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">🧭 여행온</div>
+      <p>국내 여행지 추천 플랫폼</p>
+      <p style="margin-top: 10px;">&copy; 2026 여행온 (TravelOn). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

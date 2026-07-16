@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="board-header">
+            <h1>게시글 상세</h1>
+        </header>
+
+        <!-- 오류 메시지 영역 -->
+        <div id="error-message" class="error-message" hidden></div>
+
+        <!-- 게시글 상세 영역 -->
+        <article id="post-detail" class="post-detail" hidden>
+            <h2 id="post-title" class="post-detail-title"></h2>
+
+            <div class="post-detail-meta">
+                <span>작성자 <strong id="post-writer"></strong></span>
+                <span>조회수 <strong id="post-views"></strong></span>
+                <span>등록일 <strong id="post-date"></strong></span>
+            </div>
+
+            <div id="post-content" class="post-detail-content"></div>
+
+            <div class="form-actions">
+                <a href="list.html" class="btn btn-secondary">목록</a>
+                <button type="button" id="edit-btn" class="btn btn-primary">수정</button>
+                <button type="button" id="delete-btn" class="btn btn-danger">삭제</button>
+            </div>
+        </article>
+
+        <!-- ===== 댓글 영역 ===== -->
+        <section class="comment-section">
+            <h3 class="comment-title">댓글</h3>
+
+            <!-- 댓글 오류 메시지 영역 -->
+            <div id="comment-error" class="error-message" hidden></div>
+
+            <!-- 댓글 작성 폼 -->
+            <form id="comment-form" class="comment-form">
+                <input
+                    type="text"
+                    id="comment-writer"
+                    class="form-input"
+                    placeholder="작성자 (최대 50자)"
+                    maxlength="50"
+                    required
+                />
+                <textarea
+                    id="comment-content"
+                    class="form-textarea comment-textarea"
+                    placeholder="댓글을 입력하세요"
+                    rows="3"
+                    required
+                ></textarea>
+                <div class="comment-form-actions">
+                    <button type="submit" class="btn btn-primary">댓글 등록</button>
+                </div>
+            </form>
+
+            <!-- 댓글 목록 -->
+            <ul id="comment-list" class="comment-list">
+                <!-- JavaScript로 댓글 목록이 렌더링됩니다 -->
+            </ul>
+        </section>
+    </div>
+
+    <!-- Supabase JS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="detail.js"></script>
+    <script src="comment.js"></script>
+</body>
+</html>

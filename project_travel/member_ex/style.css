@@ -1,0 +1,380 @@
+/* =====================================================================
+   기본 리셋 & 공통 설정
+   ===================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* padding/border를 width에 포함시켜 레이아웃 계산을 쉽게 */
+}
+
+:root {
+    /* 색상 변수: 한 곳에서 관리하면 나중에 바꾸기 쉬움 */
+    --color-primary: #4f46e5;
+    --color-primary-dark: #4338ca;
+    --color-bg: #f3f4f6;
+    --color-card: #ffffff;
+    --color-text: #1f2937;
+    --color-muted: #6b7280;
+    --color-border: #d1d5db;
+    --color-error: #dc2626;
+    --color-success: #16a34a;
+}
+
+body {
+    font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+/* =====================================================================
+   페이지 레이아웃 (화면 정중앙 정렬)
+   ===================================================================== */
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* 모바일에서 카드가 화면 끝에 붙지 않도록 여백 */
+}
+
+/* =====================================================================
+   카드
+   ===================================================================== */
+.card {
+    background-color: var(--color-card);
+    width: 100%;
+    max-width: 420px; /* 데스크톱에서 너무 넓어지지 않도록 제한 */
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card__title {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.card__subtitle {
+    text-align: center;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-top: 6px;
+    margin-bottom: 24px;
+}
+
+/* =====================================================================
+   폼 요소
+   ===================================================================== */
+.form__group {
+    margin-bottom: 16px;
+}
+
+.form__group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.required {
+    color: var(--color-error); /* 필수 항목 표시(*) */
+}
+
+.form__group input[type="text"],
+.form__group input[type="email"],
+.form__group input[type="password"],
+.form__group input[type="tel"],
+.form__group input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.15s;
+}
+
+/* 입력창 포커스 시 강조 */
+.form__group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* 비밀번호 입력 + 토글 버튼을 나란히 배치 */
+.input-wrap {
+    position: relative;
+}
+
+.input-wrap input {
+    padding-right: 44px; /* 토글 버튼 자리 확보 */
+}
+
+.toggle-pw {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 4px;
+    opacity: 0.6;
+}
+
+.toggle-pw:hover {
+    opacity: 1;
+}
+
+/* 프로필 이미지 미리보기 */
+.preview {
+    display: block;
+    margin-top: 10px;
+    width: 90px;
+    height: 90px;
+    object-fit: cover; /* 비율 유지하며 정사각형으로 자름 */
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+}
+
+/* =====================================================================
+   메시지 (오류 / 성공)
+   ===================================================================== */
+.message {
+    min-height: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.message--error {
+    color: var(--color-error);
+}
+
+.message--success {
+    color: var(--color-success);
+}
+
+/* =====================================================================
+   버튼
+   ===================================================================== */
+.form__actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.btn {
+    flex: 1; /* 두 버튼이 같은 너비로 나눠짐 */
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s, opacity 0.15s;
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.btn--primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.btn--ghost {
+    background-color: #fff;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.btn--ghost:hover {
+    background-color: #f9fafb;
+}
+
+/* 로딩/비활성 상태: 클릭 불가 + 흐리게 */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =====================================================================
+   로그인 링크
+   ===================================================================== */
+.login-link {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-top: 18px;
+}
+
+.login-link a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================================
+   반응형: 작은 화면에서 카드 여백/버튼 배치 조정
+   ===================================================================== */
+@media (max-width: 480px) {
+    .card {
+        padding: 24px 20px;
+    }
+
+    /* 좁은 화면에서는 버튼을 세로로 쌓음 */
+    .form__actions {
+        flex-direction: column;
+    }
+}
+
+/* =====================================================================
+   회원 관리 페이지 (member.html) 전용 스타일
+   ===================================================================== */
+
+/* 관리자 페이지는 카드보다 넓은 전용 컨테이너 */
+.admin {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+/* 상단 헤더: 제목(왼쪽) / 로그아웃(오른쪽) */
+.admin__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.admin__title {
+    font-size: 1.5rem;
+}
+
+.admin__subtitle {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* 검색 도구 모음: 검색창 + 새로고침 버튼을 가로 배치 */
+.toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.toolbar__search {
+    flex: 1; /* 검색창이 남는 가로 공간을 모두 차지 */
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.toolbar__search:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* 새로고침 버튼은 내용 크기만큼만 (검색창처럼 늘어나지 않도록) */
+.toolbar .btn {
+    flex: 0 0 auto;
+}
+
+/* -------------------------------------------------------------------
+   테이블: 좁은 화면에서 가로 스크롤
+   ------------------------------------------------------------------- */
+.table-wrap {
+    overflow-x: auto; /* 화면이 좁으면 이 영역만 가로 스크롤 */
+    background-color: var(--color-card);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.member-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px; /* 이 폭보다 좁아지면 가로 스크롤 발생 */
+}
+
+.member-table th,
+.member-table td {
+    padding: 14px 16px;
+    text-align: left;
+    white-space: nowrap; /* 셀 내용이 줄바꿈 없이 한 줄로 */
+}
+
+.member-table thead th {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    border-bottom: 2px solid var(--color-border);
+}
+
+/* 행 사이 구분선 */
+.member-table tbody tr {
+    border-bottom: 1px solid #eef0f3;
+}
+
+.member-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* 이름 첫 글자가 들어가는 원형 프로필 아이콘 */
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* 상태(로딩/빈 목록/오류) 안내 셀 */
+.state-cell {
+    text-align: center !important;
+    color: var(--color-muted);
+    padding: 32px 16px !important;
+    white-space: normal !important;
+}
+
+/* -------------------------------------------------------------------
+   권한 배지 (관리자 / 일반) — mypage 와 동일한 형태의 공유 컴포넌트
+   ------------------------------------------------------------------- */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.badge--admin {
+    background-color: #ede9fe;
+    color: #6d28d9;
+}
+
+.badge--user {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+/* 좁은 화면에서 헤더를 세로로 정렬 */
+@media (max-width: 560px) {
+    .admin__header {
+        flex-direction: column;
+    }
+}
